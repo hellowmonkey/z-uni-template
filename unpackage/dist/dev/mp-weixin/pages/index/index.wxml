@@ -1,0 +1,1 @@
+<view class="content"><z-button vue-id="1" type="primary" icon="success_no_circle" size="small" bind:__l="__l" vue-slots="{{['default']}}">aaa</z-button></view>

@@ -1,0 +1,11 @@
+.z-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&.z-button-block {
+		width: 100%;
+	}
+	&.z-button-size__small {
+		font-size: .8em;
+	}
+}
