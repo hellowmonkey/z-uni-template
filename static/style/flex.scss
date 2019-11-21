@@ -1,7 +1,7 @@
-.flex-inline {
+.d-flex-inline {
   display: inline-flex;
 }
-.flex {
+.d-flex {
   display: flex;
   &.direction-row {
     flex-direction: row;
@@ -72,9 +72,12 @@
   &.align-content-stretch {
     align-content: stretch;
   }
-  & > .flex-item-auto {
-    flex: auto;
+  & > .flex-item-extend {
+    flex: 1;
   }
+	& > .flex-item-auto {
+	  flex: auto;
+	}
   & > .flex-item-none {
     flex: none;
   }

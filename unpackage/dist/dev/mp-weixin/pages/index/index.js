@@ -126,6 +126,23 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -133,10 +150,14 @@ var _default =
   },
   components: {},
 
+
   onLoad: function onLoad() {
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    handleTap: function handleTap(e) {
+      console.log(e);
+    } } };exports.default = _default;
 
 /***/ })
 

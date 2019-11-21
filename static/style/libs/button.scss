@@ -1,11 +1,126 @@
 .z-button {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	&.z-button-block {
-		width: 100%;
+	padding: $uni-button-padding-vertical $uni-button-padding-cross;
+	border: 0.5px solid $uni-border-color;
+	background-color: $uni-color-light;
+	border-radius: $uni-button-radius;
+	box-shadow: none;
+	outline: 0;
+	font-size: $uni-font-size-base;
+	&.button-hover {
+		background-color: darken($color: $uni-color-light, $amount: 4);
+		border-color: darken($color: $uni-border-color, $amount: 10);
 	}
-	&.z-button-size__small {
-		font-size: .8em;
+	&.z-button-plain {
+		background-color: transparent;
+	}
+	&:after {
+		border: 0;
+	}
+	&.size-small {
+		font-size: $uni-font-size-sm;
+		padding: $uni-button-padding-vertical - 6 $uni-button-padding-cross - 8;
+	}
+	&.size-large {
+		font-size: $uni-font-size-lg;
+		padding: $uni-button-padding-vertical + 6 $uni-button-padding-cross + 6;
+	}
+	&.size-mini {
+		font-size: $uni-font-size-mini;
+		padding: $uni-button-padding-vertical - 10 $uni-button-padding-cross - 18;
+	}
+	&.full-width {
+		display: flex;
+		flex: 1;
+	}
+	&.z-button-radius {
+		border-radius: $uni-button-radius + 20;
+	}
+	&.z-button-round {
+		border-radius: 50%;
+		width: $uni-button-round-size;
+		height: $uni-button-round-size;
+		padding: 0;
+		&.size-large {
+			width: $uni-button-round-size + 20rpx;
+			height: $uni-button-round-size + 20rpx;
+		}
+		&.size-small {
+			width: $uni-button-round-size - 15rpx;
+			height: $uni-button-round-size - 15rpx;
+		}
+		&.size-mini {
+			width: $uni-button-round-size - 30rpx;
+			height: $uni-button-round-size - 30rpx;
+		}
+	}
+	&.color-primary {
+		background-color: $uni-color-primary;
+		color: $uni-color-light;
+		border-color: $uni-color-primary;
+		&.button-hover {
+			background-color: darken($color: $uni-color-primary, $amount: 4);
+			border-color: darken($color: $uni-color-primary, $amount: 10);
+		}
+		&.z-button-plain {
+			background-color: transparent;
+			color: $uni-color-primary;
+			&.button-hover {
+				color: darken($color: $uni-color-primary, $amount: 10);
+			}
+		}
+	}
+	&.color-success {
+		background-color: $uni-color-success;
+		color: $uni-color-light;
+		border-color: $uni-color-success;
+		&.button-hover {
+			background-color: darken($color: $uni-color-success, $amount: 4);
+			border-color: darken($color: $uni-color-success, $amount: 10);
+		}
+		&.z-button-plain {
+			background-color: transparent;
+			color: $uni-color-success;
+			&.button-hover {
+				color: darken($color: $uni-color-success, $amount: 10);
+			}
+		}
+	}
+	&.color-warning {
+		background-color: $uni-color-warning;
+		color: $uni-color-light;
+		border-color: $uni-color-warning;
+		&.button-hover {
+			background-color: darken($color: $uni-color-warning, $amount: 4);
+			border-color: darken($color: $uni-color-warning, $amount: 10);
+		}
+		&.z-button-plain {
+			background-color: transparent;
+			color: $uni-color-warning;
+			&.button-hover {
+				color: darken($color: $uni-color-warning, $amount: 10);
+			}
+		}
+	}
+	&.color-danger {
+		background-color: $uni-color-error;
+		color: $uni-color-light;
+		border-color: $uni-color-error;
+		&.button-hover {
+			background-color: darken($color: $uni-color-error, $amount: 4);
+			border-color: darken($color: $uni-color-error, $amount: 10);
+		}
+		&.z-button-plain {
+			background-color: transparent;
+			color: $uni-color-error;
+			&.button-hover {
+				color: darken($color: $uni-color-error, $amount: 10);
+			}
+		}
+	}
+	&[disabled] {
+		border-color: inherit;
 	}
 }

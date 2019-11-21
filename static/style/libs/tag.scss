@@ -1,0 +1,54 @@
+.z-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: $uni-tag-padding-vertical $uni-tag-padding-cross;
+	background-color: $uni-tag-color-default;
+	border-radius: $uni-tag-radius;
+	font-size: $uni-font-size-sm;
+	color: $uni-color-light;
+	&.z-tag-plain {
+		background-color: transparent;
+		color: $uni-tag-color-default;
+	}
+	&.size-small {
+		font-size: $uni-font-size-mini;
+		padding: $uni-tag-padding-vertical - 4 $uni-tag-padding-cross - 8;
+	}
+	&.size-large {
+		font-size: $uni-font-size-lg;
+		padding: $uni-tag-padding-vertical + 6 $uni-tag-padding-cross + 6;
+	}
+	&.color-primary {
+		background-color: $uni-color-primary;
+		border: 1px solid $uni-color-primary;
+		&.z-tag-plain {
+			background-color: transparent;
+			color: $uni-color-primary;
+		}
+	}
+	&.color-success {
+		background-color: $uni-color-success;
+		border: 1px solid $uni-color-success;
+		&.z-tag-plain {
+			background-color: transparent;
+			color: $uni-color-success;
+		}
+	}
+	&.color-warning {
+		background-color: $uni-color-warning;
+		border: 1px solid $uni-color-warning;
+		&.z-tag-plain {
+			background-color: transparent;
+			color: $uni-color-warning;
+		}
+	}
+	&.color-danger {
+		background-color: $uni-color-error;
+		border: 1px solid $uni-color-error;
+		&.z-tag-plain {
+			background-color: transparent;
+			color: $uni-color-error;
+		}
+	}
+}

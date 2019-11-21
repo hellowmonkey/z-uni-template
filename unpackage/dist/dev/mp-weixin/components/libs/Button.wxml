@@ -1,1 +1,1 @@
-<button class="{{[btnclass]}}" form-type="{{formType}}" open-type="{{openType}}" plain="{{plain}}" loading="{{loading}}" disabled="{{disabled}}"><block wx:if="{{icon}}"><icon type="{{icon}}"></icon></block><slot></slot></button>
+<button class="{{[btnclass]}}" form-type="{{formType}}" open-type="{{openType}}" plain="{{plain}}" loading="{{loading}}" disabled="{{disabled||loading}}"><block wx:if="{{icon}}"><icon type="{{icon}}"></icon></block><slot></slot></button>

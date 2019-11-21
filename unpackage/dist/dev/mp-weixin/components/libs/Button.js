@@ -110,19 +110,17 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
-//
 
-var types = ['primary', 'info', 'warning', 'danger', 'default'];
+var colors = ['primary', 'info', 'warning', 'danger', 'default'];
 var sizes = ['large', 'small', 'mini', 'default'];var _default =
 
 {
   props: {
-    type: {
+    color: {
       type: String,
       default: 'default',
       validator: function validator(value) {
-        return types.includes(value);
+        return colors.includes(value);
       } },
 
     size: {
@@ -169,16 +167,27 @@ var sizes = ['large', 'small', 'mini', 'default'];var _default =
     btnclass: function btnclass() {
       var arr = [this.name];
       if (this.size !== 'default') {
-        arr.push("".concat(this.name, "-size__").concat(this.size));
+        arr.push("size-".concat(this.size));
+      }
+      if (this.color !== 'default') {
+        arr.push("color-".concat(this.color));
       }
       if (this.block) {
-        arr.push("".concat(this.name, "-block"));
+        arr.push('full-width');
+      }
+      if (this.plain) {
+        arr.push("".concat(this.name, "-plain"));
+      }
+      if (this.radius) {
+        arr.push("".concat(this.name, "-radius"));
+      }
+      if (this.round) {
+        arr.push("".concat(this.name, "-round"));
       }
       return arr;
     } },
 
-  mounted: function mounted() {
-  } };exports.default = _default;
+  mounted: function mounted() {} };exports.default = _default;
 
 /***/ })
 

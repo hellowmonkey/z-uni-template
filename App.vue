@@ -17,6 +17,8 @@
 	// 基础
 	@import "./static/style/normalize";
 	@import "./static/style/flex";
+	@import "./static/style/common";
 	// 组件
-	@import "./static/style/libs/button"
+	@import "./static/style/libs/button";
+	@import "./static/style/libs/tag";
 </style>

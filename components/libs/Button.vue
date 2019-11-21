@@ -1,23 +1,21 @@
 <template>
-	<button :class="btnclass" :form-type="formType" :open-type="openType" :plain="plain" :loading="loading" :disabled="disabled">
-		<template v-if="icon">
-			<icon :type="icon"></icon>
-		</template>
+	<button :class="btnclass" :form-type="formType" :open-type="openType" :plain="plain" :loading="loading" :disabled="disabled || loading">
+		<icon :type="icon" v-if="icon"></icon>
 		<slot></slot>
 	</button>
 </template>
 
 <script>
-	const types = ['primary', 'info', 'warning', 'danger', 'default']
+	const colors = ['primary', 'info', 'warning', 'danger', 'default']
 	const sizes = ['large', 'small', 'mini', 'default']
 
 	export default {
 		props: {
-			type: {
+			color: {
 				type: String,
 				default: 'default',
 				validator(value) {
-					return types.includes(value)
+					return colors.includes(value)
 				}
 			},
 			size: {
@@ -63,17 +61,28 @@
 		computed: {
 			btnclass() {
 				const arr = [this.name]
-				if(this.size !== 'default'){
-					arr.push(`${this.name}-size__${this.size}`)
+				if (this.size !== 'default') {
+					arr.push(`size-${this.size}`)
 				}
-				if(this.block){
-					arr.push(`${this.name}-block`)
+				if (this.color !== 'default') {
+					arr.push(`color-${this.color}`)
+				}
+				if (this.block) {
+					arr.push('full-width')
+				}
+				if (this.plain) {
+					arr.push(`${this.name}-plain`)
+				}
+				if (this.radius) {
+					arr.push(`${this.name}-radius`)
+				}
+				if (this.round) {
+					arr.push(`${this.name}-round`)
 				}
 				return arr
 			}
 		},
-		mounted() {
-		}
+		mounted() {}
 	}
 </script>
 
