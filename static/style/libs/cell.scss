@@ -1,0 +1,22 @@
+.z-cell {
+	background-color: $uni-color-light;
+	position: relative;
+	padding: $uni-cell-padding-vertical $uni-cell-padding-cross;
+	&:not(:last-child)::after {
+		position: absolute;
+		content: ' ';
+		pointer-events: none;
+		transform: scaleY(0.5);
+		left: $uni-cell-padding-cross;
+		right: 0;
+		bottom: 0;
+		border-bottom: 1px solid $uni-border-color;
+	}
+	.z-cell-right {
+		color: $uni-text-color-grey;
+	}
+
+	&.hover {
+		background-color: darken($color: $uni-color-light, $amount: 5);
+	}
+}

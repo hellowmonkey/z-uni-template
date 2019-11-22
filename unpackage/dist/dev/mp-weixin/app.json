@@ -11,6 +11,7 @@
   },
   "usingComponents": {
     "z-button": "/components/libs/Button",
-    "z-tag": "/components/libs/Tag"
+    "z-tag": "/components/libs/Tag",
+    "z-cell": "/components/libs/Cell"
   }
 }

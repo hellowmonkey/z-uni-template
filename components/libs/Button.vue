@@ -1,5 +1,5 @@
 <template>
-	<button :class="btnclass" :form-type="formType" :open-type="openType" :plain="plain" :loading="loading" :disabled="disabled || loading">
+	<button hover-class="hover" :class="btnclass" :form-type="formType" :open-type="openType" :plain="plain" :loading="loading" :disabled="disabled || loading">
 		<icon :type="icon" v-if="icon"></icon>
 		<slot></slot>
 	</button>

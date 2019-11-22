@@ -21,4 +21,5 @@
 	// 组件
 	@import "./static/style/libs/button";
 	@import "./static/style/libs/tag";
+	@import "./static/style/libs/cell";
 </style>

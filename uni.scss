@@ -39,10 +39,10 @@ $uni-border-color: #c8c7cc;
 /* 尺寸变量 */
 
 /* 文字尺寸 */
-$uni-font-size-lg: 30rpx;
-$uni-font-size-base: 26rpx;
-$uni-font-size-sm: 22rpx;
-$uni-font-size-mini: 18rpx;
+$uni-font-size-lg: 34rpx;
+$uni-font-size-base: 28rpx;
+$uni-font-size-sm: 24rpx;
+$uni-font-size-mini: 20rpx;
 
 /* 图片尺寸 */
 $uni-img-size-sm: 40rpx;
@@ -80,16 +80,20 @@ $uni-font-size-paragraph: 30rpx;
 $uni-color-light: #fff;
 
 /* Button */
-$uni-button-padding-cross: 50rpx;
 $uni-button-padding-vertical: 20rpx;
+$uni-button-padding-cross: 50rpx;
 $uni-button-radius: 0px;
 $uni-button-round-size: 90rpx;
 
 /* Tag */
-$uni-tag-padding-cross: 20rpx;
 $uni-tag-padding-vertical: 6rpx;
+$uni-tag-padding-cross: 20rpx;
 $uni-tag-radius: 30rpx;
 $uni-tag-color-default: lighten(
 	$color: $uni-text-color-placeholder,
 	$amount: 12
 );
+
+/* Cell */
+$uni-cell-padding-vertical: 30rpx;
+$uni-cell-padding-cross: 40rpx;

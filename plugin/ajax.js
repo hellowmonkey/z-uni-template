@@ -10,8 +10,7 @@ const ajax = (params = {}) => {
 		method: 'GET',
 		baseURL: config.baseURL,
 		data: {},
-		header: {
-		},
+		header: {},
 		__errorHandle: true // 自动处理错误
 	}, params)
 	params.method = params.method.toLocaleUpperCase()
@@ -25,14 +24,21 @@ const ajax = (params = {}) => {
 	if (!(/:\/\//.test(params.url) || /^\/\//.test(params.url))) {
 		params.url = params.baseURL.replace(/\/$/, '') + '/' + params.url.replace(/^\//, '')
 	}
-	const data = JSON.parse(JSON.stringify(params))
-	const query = data.data
-	for (let key in query) {
-		const item = query[key]
-		if (isEmpty(item)) delete data.data[key]
+	const {
+		data
+	} = params
+	const query = {}
+	for (const key in data) {
+		let item = data[key]
+		if (!isEmpty(item)) {
+			if (typeof item === 'string') {
+				item = item.trim()
+			}
+			query[key] = item
+		}
 	}
-	delete data.data.__errorHandle
-	delete data.data.baseURL
+	delete data.__errorHandle
+	delete data.baseURL
 	return new Promise((resolve, reject) => {
 		if (store.state.event.netWorkType === 'none') {
 			uni.showToast({
@@ -44,7 +50,8 @@ const ajax = (params = {}) => {
 			})
 		}
 		return uni.request({
-			...data,
+			...params,
+			data: query,
 			success({
 				data
 			}) {
@@ -87,9 +94,10 @@ const methods = {};
 
 for (let key in methods) {
 	ajax.prototype[`$${key}`] = methods[key]
-	Vue.prototype[`$${key}`] = methods[key]
-	store[`$${key}`] = methods[key]
 }
+
+Vue.prototype.$ajax = ajax
+store.$ajax = ajax
 
 export default ajax
 

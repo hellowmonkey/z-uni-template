@@ -9,7 +9,7 @@
 	box-shadow: none;
 	outline: 0;
 	font-size: $uni-font-size-base;
-	&.button-hover {
+	&.hover {
 		background-color: darken($color: $uni-color-light, $amount: 4);
 		border-color: darken($color: $uni-border-color, $amount: 10);
 	}
@@ -60,14 +60,14 @@
 		background-color: $uni-color-primary;
 		color: $uni-color-light;
 		border-color: $uni-color-primary;
-		&.button-hover {
+		&.hover {
 			background-color: darken($color: $uni-color-primary, $amount: 4);
 			border-color: darken($color: $uni-color-primary, $amount: 10);
 		}
 		&.z-button-plain {
 			background-color: transparent;
 			color: $uni-color-primary;
-			&.button-hover {
+			&.hover {
 				color: darken($color: $uni-color-primary, $amount: 10);
 			}
 		}
@@ -76,14 +76,14 @@
 		background-color: $uni-color-success;
 		color: $uni-color-light;
 		border-color: $uni-color-success;
-		&.button-hover {
+		&.hover {
 			background-color: darken($color: $uni-color-success, $amount: 4);
 			border-color: darken($color: $uni-color-success, $amount: 10);
 		}
 		&.z-button-plain {
 			background-color: transparent;
 			color: $uni-color-success;
-			&.button-hover {
+			&.hover {
 				color: darken($color: $uni-color-success, $amount: 10);
 			}
 		}
@@ -92,14 +92,14 @@
 		background-color: $uni-color-warning;
 		color: $uni-color-light;
 		border-color: $uni-color-warning;
-		&.button-hover {
+		&.hover {
 			background-color: darken($color: $uni-color-warning, $amount: 4);
 			border-color: darken($color: $uni-color-warning, $amount: 10);
 		}
 		&.z-button-plain {
 			background-color: transparent;
 			color: $uni-color-warning;
-			&.button-hover {
+			&.hover {
 				color: darken($color: $uni-color-warning, $amount: 10);
 			}
 		}
@@ -108,14 +108,14 @@
 		background-color: $uni-color-error;
 		color: $uni-color-light;
 		border-color: $uni-color-error;
-		&.button-hover {
+		&.hover {
 			background-color: darken($color: $uni-color-error, $amount: 4);
 			border-color: darken($color: $uni-color-error, $amount: 10);
 		}
 		&.z-button-plain {
 			background-color: transparent;
 			color: $uni-color-error;
-			&.button-hover {
+			&.hover {
 				color: darken($color: $uni-color-error, $amount: 10);
 			}
 		}

@@ -27,6 +27,7 @@
 /* 公共配置 */
 /* Button */
 /* Tag */
+/* Cell */
 /*每个页面公共css */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -493,6 +494,9 @@ template {
         -ms-flex: none;
             flex: none;
 }
+page {
+  font-size: 28rpx;
+}
 image {
   max-width: 100%;
   vertical-align: middle;
@@ -546,18 +550,18 @@ video {
 }
 .font-large,
 text.size-large {
-  font-size: 30rpx;
+  font-size: 34rpx;
 }
 .font-small,
 text.size-small {
-  font-size: 22rpx;
+  font-size: 24rpx;
 }
 .font-mini,
 text.size-mini {
-  font-size: 18rpx;
+  font-size: 20rpx;
 }
 .font-base {
-  font-size: 26rpx;
+  font-size: 28rpx;
 }
 .text-gray,
 text.color-gray {
@@ -621,6 +625,42 @@ view.color-error {
 .text-through {
   text-decoration: line-through;
 }
+.border-bottom::after, .border-top::after {
+  position: absolute;
+  content: ' ';
+  pointer-events: none;
+  -webkit-transform: scaleY(0.5);
+      -ms-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+}
+.border-bottom::after {
+  border-bottom: 1px solid #c8c7cc;
+  bottom: 0;
+}
+.border-top::after {
+  border-top: 1px solid #c8c7cc;
+  top: 0;
+}
+.border-left::after, .border-right::after {
+  position: absolute;
+  content: ' ';
+  pointer-events: none;
+  -webkit-transform: scaleX(0.5);
+      -ms-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+}
+.border-left::after {
+  border-left: 1px solid #c8c7cc;
+  left: 0;
+}
+.border-right::after {
+  border-right: 1px solid #c8c7cc;
+  right: 0;
+}
 .z-button {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -641,9 +681,9 @@ view.color-error {
   -webkit-box-shadow: none;
           box-shadow: none;
   outline: 0;
-  font-size: 26rpx;
+  font-size: 28rpx;
 }
-.z-button.button-hover {
+.z-button.hover {
     background-color: whitesmoke;
     border-color: #aeacb4;
 }
@@ -654,15 +694,15 @@ view.color-error {
     border: 0;
 }
 .z-button.size-small {
-    font-size: 22rpx;
+    font-size: 24rpx;
     padding: 14rpx 42rpx;
 }
 .z-button.size-large {
-    font-size: 30rpx;
+    font-size: 34rpx;
     padding: 26rpx 56rpx;
 }
 .z-button.size-mini {
-    font-size: 18rpx;
+    font-size: 20rpx;
     padding: 10rpx 32rpx;
 }
 .z-button.full-width {
@@ -701,7 +741,7 @@ view.color-error {
     color: #fff;
     border-color: #007aff;
 }
-.z-button.color-primary.button-hover {
+.z-button.color-primary.hover {
       background-color: #0070eb;
       border-color: #0062cc;
 }
@@ -709,7 +749,7 @@ view.color-error {
       background-color: transparent;
       color: #007aff;
 }
-.z-button.color-primary.z-button-plain.button-hover {
+.z-button.color-primary.z-button-plain.hover {
         color: #0062cc;
 }
 .z-button.color-success {
@@ -717,7 +757,7 @@ view.color-error {
     color: #fff;
     border-color: #4cd964;
 }
-.z-button.color-success.button-hover {
+.z-button.color-success.hover {
       background-color: #3bd555;
       border-color: #2ac845;
 }
@@ -725,7 +765,7 @@ view.color-error {
       background-color: transparent;
       color: #4cd964;
 }
-.z-button.color-success.z-button-plain.button-hover {
+.z-button.color-success.z-button-plain.hover {
         color: #2ac845;
 }
 .z-button.color-warning {
@@ -733,7 +773,7 @@ view.color-error {
     color: #fff;
     border-color: #f0ad4e;
 }
-.z-button.color-warning.button-hover {
+.z-button.color-warning.hover {
       background-color: #eea43b;
       border-color: #ec971f;
 }
@@ -741,7 +781,7 @@ view.color-error {
       background-color: transparent;
       color: #f0ad4e;
 }
-.z-button.color-warning.z-button-plain.button-hover {
+.z-button.color-warning.z-button-plain.hover {
         color: #ec971f;
 }
 .z-button.color-danger {
@@ -749,7 +789,7 @@ view.color-error {
     color: #fff;
     border-color: #dd524d;
 }
-.z-button.color-danger.button-hover {
+.z-button.color-danger.hover {
       background-color: #da413c;
       border-color: #cf2d28;
 }
@@ -757,7 +797,7 @@ view.color-error {
       background-color: transparent;
       color: #dd524d;
 }
-.z-button.color-danger.z-button-plain.button-hover {
+.z-button.color-danger.z-button-plain.hover {
         color: #cf2d28;
 }
 .z-button[disabled] {
@@ -779,7 +819,7 @@ view.color-error {
   padding: 6rpx 20rpx;
   background-color: #9f9f9f;
   border-radius: 30rpx;
-  font-size: 22rpx;
+  font-size: 24rpx;
   color: #fff;
 }
 .z-tag.z-tag-plain {
@@ -787,11 +827,11 @@ view.color-error {
     color: #9f9f9f;
 }
 .z-tag.size-small {
-    font-size: 18rpx;
+    font-size: 20rpx;
     padding: 2rpx 12rpx;
 }
 .z-tag.size-large {
-    font-size: 30rpx;
+    font-size: 34rpx;
     padding: 12rpx 26rpx;
 }
 .z-tag.color-primary {
@@ -825,5 +865,28 @@ view.color-error {
 .z-tag.color-danger.z-tag-plain {
       background-color: transparent;
       color: #dd524d;
+}
+.z-cell {
+  background-color: #fff;
+  position: relative;
+  padding: 30rpx 40rpx;
+}
+.z-cell:not(:last-child)::after {
+    position: absolute;
+    content: ' ';
+    pointer-events: none;
+    -webkit-transform: scaleY(0.5);
+        -ms-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+    left: 40rpx;
+    right: 0;
+    bottom: 0;
+    border-bottom: 1px solid #c8c7cc;
+}
+.z-cell .z-cell-right {
+    color: #999;
+}
+.z-cell.hover {
+    background-color: #f2f2f2;
 }
 

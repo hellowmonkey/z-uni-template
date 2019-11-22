@@ -8415,7 +8415,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "uni-app", "usingComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "uni-app" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
@@ -9587,7 +9587,6 @@ var ajax = function ajax() {var params = arguments.length > 0 && arguments[0] !=
     baseURL: _config.default.baseURL,
     data: {},
     header: {},
-
     __errorHandle: true // 自动处理错误
   }, params);
   params.method = params.method.toLocaleUpperCase();
@@ -9600,15 +9599,22 @@ var ajax = function ajax() {var params = arguments.length > 0 && arguments[0] !=
   }
   if (!(/:\/\//.test(params.url) || /^\/\//.test(params.url))) {
     params.url = params.baseURL.replace(/\/$/, '') + '/' + params.url.replace(/^\//, '');
+  }var _params =
+
+
+  params,data = _params.data;
+  var query = {};
+  for (var key in data) {
+    var item = data[key];
+    if (!(0, _utils.isEmpty)(item)) {
+      if (typeof item === 'string') {
+        item = item.trim();
+      }
+      query[key] = item;
+    }
   }
-  var data = JSON.parse(JSON.stringify(params));
-  var query = data.data;
-  for (var key in query) {
-    var item = query[key];
-    if ((0, _utils.isEmpty)(item)) delete data.data[key];
-  }
-  delete data.data.__errorHandle;
-  delete data.data.baseURL;
+  delete data.__errorHandle;
+  delete data.baseURL;
   return new Promise(function (resolve, reject) {
     if (_store.default.state.event.netWorkType === 'none') {
       uni.showToast({
@@ -9620,7 +9626,8 @@ var ajax = function ajax() {var params = arguments.length > 0 && arguments[0] !=
 
     }
     return uni.request(_objectSpread({},
-    data, {
+    params, {
+      data: query,
       success: function success(_ref)
 
       {var data = _ref.data;
@@ -9663,9 +9670,10 @@ var methods = {};
 
 for (var key in methods) {
   ajax.prototype["$".concat(key)] = methods[key];
-  _vue.default.prototype["$".concat(key)] = methods[key];
-  _store.default["$".concat(key)] = methods[key];
-}var _default =
+}
+
+_vue.default.prototype.$ajax = ajax;
+_store.default.$ajax = ajax;var _default =
 
 ajax;exports.default = _default;
 
@@ -9702,7 +9710,30 @@ uni.onNetworkStatusChange(function (_ref2)
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.random = exports.getType = exports.getParams = exports.isEmpty = void 0;var isEmpty = function isEmpty(data) {
+  return data === '' || data === null || data === undefined || typeof data === 'number' && isNaN(data);
+};exports.isEmpty = isEmpty;
 
+var getParams = function getParams() {var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : window.location.href;
+  var arr = url.split('?');
+  var query = arr[1];
+  var paramsArr = query.split('&');
+  var params = {};
+  paramsArr.map(function (item) {
+    var arrs = item.split('=');
+    params[arrs[0]] = arrs[1];
+  });
+  return params;
+};exports.getParams = getParams;
+
+var getType = function getType(item) {
+  var str = Object.prototype.toString.call(item);
+  return str.substring(8, str.length - 1).toLocaleLowerCase();
+};exports.getType = getType;
+
+var random = function random(n, m) {
+  return Math.floor(Math.random() * (m - n + 1) + n);
+};exports.random = random;
 
 /***/ }),
 /* 23 */
@@ -9758,6 +9789,112 @@ dayjs;exports.default = _default;
 
 "use strict";
 !function (r, t) { true ? module.exports = t() : undefined;}(void 0, function () {"use strict";return function (r, t, e) {var n = t.prototype;e.en.relativeTime = { future: "in %s", past: "%s ago", s: "a few seconds", m: "a minute", mm: "%d minutes", h: "an hour", hh: "%d hours", d: "a day", dd: "%d days", M: "a month", MM: "%d months", y: "a year", yy: "%d years" };var o = function o(r, t, n, _o) {for (var d, i, u = n.$locale().relativeTime, a = [{ l: "s", r: 44, d: "second" }, { l: "m", r: 89 }, { l: "mm", r: 44, d: "minute" }, { l: "h", r: 89 }, { l: "hh", r: 21, d: "hour" }, { l: "d", r: 35 }, { l: "dd", r: 25, d: "day" }, { l: "M", r: 45 }, { l: "MM", r: 10, d: "month" }, { l: "y", r: 17 }, { l: "yy", d: "year" }], f = a.length, s = 0; s < f; s += 1) {var l = a[s];l.d && (d = _o ? e(r).diff(n, l.d, !0) : n.diff(r, l.d, !0));var h = Math.round(Math.abs(d));if (h <= l.r || !l.r) {1 === h && s > 0 && (l = a[s - 1]), i = u[l.l].replace("%d", h);break;}}return t ? i : (d > 0 ? u.future : u.past).replace("%s", i);};n.to = function (r, t) {return o(r, t, this, !0);}, n.from = function (r, t) {return o(r, t, this);};var d = function d(r) {return r.$u ? e.utc() : e();};n.toNow = function (r) {return this.to(d(this), r);}, n.fromNow = function (r) {return this.from(d(this), r);};};});
+
+/***/ }),
+/* 27 */
+/*!*********************************************!*\
+  !*** E:/Git/z-uni-template/plugin/modal.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _store = _interopRequireDefault(__webpack_require__(/*! ../store */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+var toast = function toast() {var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  uni.showToast({
+    title: message,
+    icon: 'none',
+    position: 'bottom',
+    duration: 2000 });
+
+};
+
+var success = function success() {var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  uni.showToast({
+    title: message,
+    icon: 'success',
+    position: 'center',
+    duration: 3000 });
+
+};
+
+var loading = function loading() {var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  uni.showLoading({
+    title: message,
+    mask: true });
+
+  return uni.hideLoading;
+};
+
+var modal = function modal() {var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return new Promise(function (resolve, reject) {
+    uni.showModal(_objectSpread({},
+    opts, {
+      success: function success(res) {
+        if (res.confirm) {
+          return resolve();
+        }
+        return reject();
+      },
+      fail: function fail(e) {
+        return reject(e);
+      } }));
+
+  });
+};
+
+var alert = function alert(title) {var content = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';var confirmText = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '确认';
+  return modal({
+    title: title,
+    content: content,
+    confirmText: confirmText,
+    showCancel: false });
+
+};
+
+var confirm = function confirm(title) {var content = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';var confirmText = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '确认';var cancelText = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '取消';
+  return modal({
+    title: title,
+    content: content,
+    confirmText: confirmText,
+    cancelText: cancelText });
+
+};
+
+var actionSheet = function actionSheet() {var itemList = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  return new Promise(function (resolve, reject) {
+    uni.showActionSheet({
+      itemList: itemList,
+      success: function success(_ref)
+
+      {var tapIndex = _ref.tapIndex;
+        resolve(tapIndex);
+      },
+      fail: function fail(e) {
+        reject(e);
+      } });
+
+  });
+};
+
+_vue.default.prototype.$toast = toast;
+_vue.default.prototype.$success = success;
+_vue.default.prototype.$loading = loading;
+_vue.default.prototype.$modal = modal;
+_vue.default.prototype.$alert = alert;
+_vue.default.prototype.$confirm = confirm;
+_vue.default.prototype.$actionSheet = actionSheet;
+
+_store.default.$toast = toast;
+_store.default.$success = success;
+_store.default.$loading = loading;
+_store.default.$modal = modal;
+_store.default.$alert = alert;
+_store.default.$confirm = confirm;
+_store.default.$actionSheet = actionSheet;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 ]]);
