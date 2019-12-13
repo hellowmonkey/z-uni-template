@@ -1,202 +1,252 @@
+@font-face {
+  font-family: 'iconfont'; /* project id 249425 */
+  src: url('//at.alicdn.com/t/font_249425_17bmfp41rkx.eot');
+  src: url('//at.alicdn.com/t/font_249425_17bmfp41rkx.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_249425_17bmfp41rkx.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_249425_17bmfp41rkx.woff') format('woff'), url('//at.alicdn.com/t/font_249425_17bmfp41rkx.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_249425_17bmfp41rkx.svg#iconfont') format('svg');
+}
+
+.z-iconfont {
+  font-family: 'iconfont' !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 page {
-	font-size: $uni-font-size-base;
+  font-size: $uni-font-size-base;
 }
 
 image {
-	max-width: 100%;
-	vertical-align: middle;
-	will-change: transform;
+  max-width: 100%;
+  vertical-align: middle;
+  will-change: transform;
 }
 
 video {
-	width: 100%;
+  width: 100%;
 }
 
 .session {
-	background-color: white;
-	padding: $uni-spacing-row-base;
+  background-color: white;
+  padding: $uni-spacing-row-base;
 }
 
 .full-width {
-	width: 100%;
+  width: 100%;
 }
 .full-height {
-	height: 100%;
+  height: 100%;
 }
 .pull-right {
-	float: right;
+  float: right;
 }
 
 .pull-left {
-	float: left;
+  float: left;
 }
 
 .mar-l-1 {
-	margin-left: 15rpx;
+  margin-left: 15rpx;
 }
 
 .mar-r-1 {
-	margin-right: 15rpx;
+  margin-right: 15rpx;
 }
 
 .mar-t-1 {
-	margin-top: 15rpx;
+  margin-top: 15rpx;
 }
 
 .mar-b-1 {
-	margin-bottom: 15rpx;
+  margin-bottom: 15rpx;
 }
 
 .mar-l-2 {
-	margin-left: 25rpx;
+  margin-left: 25rpx;
 }
 
 .mar-r-2 {
-	margin-right: 25rpx;
+  margin-right: 25rpx;
 }
 
 .mar-t-2 {
-	margin-top: 25rpx;
+  margin-top: 25rpx;
 }
 
 .mar-b-2 {
-	margin-bottom: 25rpx;
+  margin-bottom: 25rpx;
+}
+
+.pad-l-1 {
+  padding-left: 15rpx;
+}
+
+.pad-r-1 {
+  padding-right: 15rpx;
+}
+
+.pad-t-1 {
+  padding-top: 15rpx;
+}
+
+.pad-b-1 {
+  padding-bottom: 15rpx;
+}
+
+.pad-l-2 {
+  padding-left: 25rpx;
+}
+
+.pad-r-2 {
+  padding-right: 25rpx;
+}
+
+.pad-t-2 {
+  padding-top: 25rpx;
+}
+
+.pad-b-2 {
+  padding-bottom: 25rpx;
 }
 
 .font-bold {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .font-large,
 text.size-large {
-	font-size: $uni-font-size-lg;
+  font-size: $uni-font-size-lg;
 }
 
 .font-small,
 text.size-small {
-	font-size: $uni-font-size-sm;
+  font-size: $uni-font-size-sm;
 }
 
 .font-mini,
 text.size-mini {
-	font-size: $uni-font-size-mini;
+  font-size: $uni-font-size-mini;
 }
 
 .font-base {
-	font-size: $uni-font-size-base;
+  font-size: $uni-font-size-base;
 }
 
 .text-gray,
 text.color-gray {
-	color: $uni-text-color-grey;
+  color: $uni-text-color-grey;
 }
 
 .text-primary,
 text.color-primary {
-	color: $uni-color-primary;
+  color: $uni-color-primary;
 }
 
 .text-success,
 text.color-success {
-	color: $uni-color-success;
+  color: $uni-color-success;
 }
 
 .text-warning,
 text.color-warning {
-	color: $uni-color-warning;
+  color: $uni-color-warning;
 }
 
 .text-light,
 text.color-light {
-	color: #fff;
+  color: #fff;
 }
 
 .text-error,
 text.color-error {
-	color: $uni-color-error;
+  color: $uni-color-error;
 }
 
 .bg-gray,
 view.color-gray {
-	background-color: $uni-text-color-grey;
+  background-color: $uni-text-color-grey;
 }
 
 .bg-primary,
 view.color-primary {
-	background-color: $uni-color-primary;
+  background-color: $uni-color-primary;
 }
 
 .bg-success,
 view.color-success {
-	background-color: $uni-color-success;
+  background-color: $uni-color-success;
 }
 
 .bg-warning,
 view.color-warning {
-	background-color: $uni-color-warning;
+  background-color: $uni-color-warning;
 }
 
 .bg-error,
 view.color-error {
-	background-color: $uni-color-error;
+  background-color: $uni-color-error;
 }
 
 .text-left {
-	text-align: left;
+  text-align: left;
 }
 
 .text-center {
-	text-align: center;
+  text-align: center;
 }
 
 .text-right {
-	text-align: right;
+  text-align: right;
 }
 
 .text-elip {
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .text-through {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
 
-.border-bottom::after,.border-top::after {
-	position: absolute;
-	content: ' ';
-	pointer-events: none;
-	transform: scaleY(0.5);
-	left: 0;
-	right: 0;
+.border-bottom::after,
+.border-top::after {
+  position: absolute;
+  content: ' ';
+  pointer-events: none;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
 }
 
 .border-bottom::after {
-	border-bottom: 1px solid $uni-border-color;
-	bottom: 0;
+  border-bottom: 1px solid $uni-border-color;
+  bottom: 0;
 }
 
 .border-top::after {
-	border-top: 1px solid $uni-border-color;
-	top: 0;
+  border-top: 1px solid $uni-border-color;
+  top: 0;
 }
 
-.border-left::after,.border-right::after {
-	position: absolute;
-	content: ' ';
-	pointer-events: none;
-	transform: scaleX(0.5);
-	top: 0;
-	bottom: 0;
+.border-left::after,
+.border-right::after {
+  position: absolute;
+  content: ' ';
+  pointer-events: none;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
 }
 
 .border-left::after {
-	border-left: 1px solid $uni-border-color;
-	left: 0;
+  border-left: 1px solid $uni-border-color;
+  left: 0;
 }
 
 .border-right::after {
-	border-right: 1px solid $uni-border-color;
-	right: 0;
+  border-right: 1px solid $uni-border-color;
+  right: 0;
 }

@@ -4,7 +4,7 @@
 	justify-content: center;
 	padding: $uni-button-padding-vertical $uni-button-padding-cross;
 	border: 0.5px solid $uni-border-color;
-	background-color: $uni-color-light;
+	background: $uni-color-light;
 	border-radius: $uni-button-radius;
 	box-shadow: none;
 	outline: 0;
@@ -57,7 +57,7 @@
 		}
 	}
 	&.color-primary {
-		background-color: $uni-color-primary;
+		@include linear-gradient;
 		color: $uni-color-light;
 		border-color: $uni-color-primary;
 		&.hover {

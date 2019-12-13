@@ -8,7 +8,7 @@
 		<view class="d-flex align-items-center z-cell-right">
 			<text v-if="value && !$slots.value">{{ value }}</text>
 			<slot name="value"></slot>
-			<icon type="success" v-if="isLink" class="mar-l-1"></icon>
+      <text class="z-iconfont mar-l-1" v-if="isLink">&#xe694;</text>
 		</view>
 	</view>
 </template>

@@ -2,80 +2,80 @@ import Vue from 'vue'
 import store from '../store'
 
 const toast = (message = '') => {
-	uni.showToast({
-		title: message,
-		icon: 'none',
-		position: 'bottom',
-		duration: 2000
-	});
+  uni.showToast({
+    title: message,
+    icon: 'none',
+    position: 'bottom',
+    duration: 2000
+  });
 }
 
 const success = (message = '') => {
-	uni.showToast({
-		title: message,
-		icon: 'success',
-		position: 'center',
-		duration: 3000
-	});
+  uni.showToast({
+    title: message,
+    icon: 'success',
+    position: 'center',
+    duration: 3000
+  });
 }
 
 const loading = (message = '') => {
-	uni.showLoading({
-		title: message,
-		mask: true
-	});
-	return uni.hideLoading
+  uni.showLoading({
+    title: message,
+    mask: true
+  });
+  return uni.hideLoading
 }
 
 const modal = (opts = {}) => {
-	return new Promise((resolve, reject) => {
-		uni.showModal({
-			...opts,
-			success(res) {
-				if (res.confirm) {
-					return resolve()
-				}
-				return reject()
-			},
-			fail(e) {
-				return reject(e)
-			}
-		});
-	})
+  return new Promise((resolve, reject) => {
+    uni.showModal({
+      ...opts,
+      success(res) {
+        if (res.confirm) {
+          return resolve()
+        }
+        return reject()
+      },
+      fail(e) {
+        return reject(e)
+      }
+    });
+  })
 }
 
 const alert = (title, content = '', confirmText = '确认') => {
-	return modal({
-		title,
-		content,
-		confirmText,
-		showCancel: false
-	})
+  return modal({
+    title,
+    content,
+    confirmText,
+    showCancel: false
+  })
 }
 
 const confirm = (title, content = '', confirmText = '确认', cancelText = '取消') => {
-	return modal({
-		title,
-		content,
-		confirmText,
-		cancelText
-	})
+  return modal({
+    title,
+    content,
+    confirmText,
+    cancelText
+  })
 }
 
 const actionSheet = (itemList = []) => {
-	return new Promise((resolve, reject) => {
-		uni.showActionSheet({
-			itemList,
-			success({
-				tapIndex
-			}) {
-				resolve(tapIndex)
-			},
-			fail(e) {
-				reject(e)
-			}
-		});
-	})
+  return new Promise((resolve, reject) => {
+    uni.showActionSheet({
+      itemList,
+      success({
+        tapIndex
+      }) {
+        resolve(tapIndex)
+      },
+      fail(e) {
+        reject(e)
+      }
+    });
+  })
 }
 
 Vue.prototype.$toast = toast

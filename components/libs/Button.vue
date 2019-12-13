@@ -6,7 +6,7 @@
 </template>
 
 <script>
-	const colors = ['primary', 'info', 'warning', 'danger', 'default']
+	const colors = ['primary', 'success', 'warning', 'danger', 'default']
 	const sizes = ['large', 'small', 'mini', 'default']
 
 	export default {

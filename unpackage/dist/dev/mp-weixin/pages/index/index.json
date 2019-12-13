@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "uni-app",
-  "usingComponents": {}
+  "usingComponents": {
+    "z-calendar": "/components/libs/Calendar",
+    "uni-popup": "/components/uni-popup/uni-popup"
+  }
 }
